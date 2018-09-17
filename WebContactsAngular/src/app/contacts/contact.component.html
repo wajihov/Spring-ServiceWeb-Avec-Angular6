@@ -2,9 +2,22 @@
   <div class="panel panel-success">
     <div class="panel-heading">Contact de ContactComponent</div>
     <div class="panel-body">
-      nom : <strong>{{contact.nom}}</strong>
-      prenom : <strong>{{contact.prenom}}</strong>
-      Email : <strong>{{contact.email}}</strong>
+        <table class="table table-responsive">
+          <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>PRENOM</th>
+            <th>E-MAIL</th>
+            <th>Date Naissance</th>
+          </tr>
+          <tr *ngFor="let c of pageContacts?.content">
+            <td>{{c.id}}</td>
+            <td>{{c.nom}}</td>
+            <td>{{c.prenom}}</td>
+            <td>{{c.email}}</td>
+            <td>{{c.dateNAissance}}</td>
+          </tr>
+        </table>
     </div>
   </div>
 </div>

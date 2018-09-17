@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-contact',
@@ -7,12 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
-  contact = { nom: 'wajih', prenom: 'BOUFAIED', email: 'wajihov@hotmail.fr'};
+  pageContacts: any;
 
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
+    this.http.get('http://localhost:8080/findPersons?mc=wa&page=1&size=6')
+      .subscribe(data =>{
+        this.pageContacts = data;
+      }, err => {
+        console.log('ErreuR : '+err);
+      });
   }
 
 }
