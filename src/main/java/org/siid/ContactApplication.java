@@ -35,7 +35,7 @@ public class ContactApplication implements CommandLineRunner {
 			System.out.println("la personne : " + c.getNom() + " Prenom : " + c.getPrenom());
 		});
 		Personne p= contactRepository.findOne(8L);
-		System.out.println("la personne : " + p.getNom() + " Prenom : " + p.getPrenom());
+		System.out.println(p.getId()+" la personne rechercher est  : " + p.getNom() + " Prenom : " + p.getPrenom());
 		
 	}
 }

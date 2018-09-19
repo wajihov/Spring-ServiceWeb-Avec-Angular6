@@ -39,14 +39,21 @@ public class ContactRestService {
 		return contactRepository.save(contact);
 	}
 
+	/*
+	 * @DeleteMapping(value = "/deletePerson/{id}") public void delete(@PathVariable
+	 * Long id) {
+	 * 
+	 * Contact c = contactJpaRepository.findOne(id); if (c != null)
+	 * contactJpaRepository.delete(c); else new RuntimeException("le contact : " +
+	 * id + " introuvable");
+	 * 
+	 * contactRepository.delete(id); }
+	 */
+
 	@DeleteMapping(value = "/deletePerson/{id}")
-	public void delete(@PathVariable Long id) {
-		/*
-		 * Contact c = contactJpaRepository.findOne(id); if (c != null)
-		 * contactJpaRepository.delete(c); else new RuntimeException("le contact : " +
-		 * id + " introuvable");
-		 */
+	public boolean delete(@PathVariable Long id) {
 		contactRepository.delete(id);
+		return true;
 	}
 
 	@PutMapping(value = "/updatePerson/{id}")
